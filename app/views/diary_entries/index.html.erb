@@ -1,0 +1,27 @@
+<h1>Hello from the viewer!!</h1>
+<p>The total number of diary entries is <%= @count %>!</p>
+<p>The total number of happy entries is <%= @happy %>!</p>
+
+	<p> 
+		<% @diary_entries.each do |d| %>
+			<p> <%= d.title %>, <%= d.description %> </p>
+
+			<% if d.happy? %>
+				<div style= 'color: green'> <%= d.title %> </div>
+			<% else %>
+				<div> <%=d.title %> </div>
+			<% end %>
+		<% end %>
+	</p>
+
+	<p> 
+		<% @happy_green.each do |d| %>
+			<div style= 'color: green'> <%= d.mood %> </div>
+		<% end %>
+	</p>
+
+	<% @diary_entries.each do |d| %>
+		<div style='color: <%= d.color %>'> 
+			<%= d.mood %>
+		</div>
+	<% end %>
