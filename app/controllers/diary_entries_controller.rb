@@ -43,10 +43,14 @@ class DiaryEntriesController < ApplicationController
 	end
 
 	def destroy
-		@diary_entry = DiaryEntryfind(params[:id])
+		@diary_entry = DiaryEntry.find(params[:id])
 
 		@diary_entry.destroy
 			redirect_to diary_entries_path
+	end
+
+	def show
+		@diary_entry = DiaryEntry.find(params[:id])
 	end
 
 end
