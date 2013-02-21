@@ -1,4 +1,4 @@
-<h1><p class="text-center">Listing Diary Entries:</p></h1><br />
+<h2><p class="text-center">Listing Diary Entries:</p></h2><br />
 <p class="muted">Total number of diary entries so far: <%= @count %> entries </p><br />
 
 	
@@ -10,6 +10,7 @@
 			<th></th>
 			<th></th>
 			<th></th>
+			<th></th>
 		</tr>
 
 		<% @diary_entries.each do |d| %>
@@ -17,9 +18,10 @@
 				<td><%= d.title %></td>
 				<td><%= d.description %></td>
 				<td><%= d.mood %></td>
-				<td><%= link_to 'Show', d %></td>
-				<td><%= link_to 'Edit', edit_diary_entry_path(d) %></td>
-			
+				<td><button class="btn btn-primary" type="button"><%= link_to 'Show', d %></button></td>
+				<td><button class="btn btn-success"><%= link_to 'Edit', edit_diary_entry_path(d) %></button></td>
+				<td><button class="btn btn-warning"><%= link_to 'Update', edit_diary_entry_path(d) %></button></td>
+				<td><button class="btn btn-danger"><%= link_to 'Destroy', d, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
 			</tr>
 		<% end %>
 	</table>
