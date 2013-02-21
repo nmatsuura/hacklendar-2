@@ -1,27 +1,29 @@
-<h1>Hello from the viewer!!</h1>
-<p>The total number of diary entries is <%= @count %>!</p>
-<p>The total number of happy entries is <%= @happy %>!</p>
+<h1><p class="text-center">Listing Diary Entries:</p></h1><br />
+<p class="muted">Total number of diary entries so far: <%= @count %> entries </p><br />
 
-	<p> 
+	
+	<table class="table">
+		<tr>
+			<th>Title</th>
+			<th>Description</th>
+			<th>Mood</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+
 		<% @diary_entries.each do |d| %>
-			<p> <%= d.title %>, <%= d.description %> </p>
-
-			<% if d.happy? %>
-				<div style= 'color: green'> <%= d.title %> </div>
-			<% else %>
-				<div> <%=d.title %> </div>
-			<% end %>
+			<tr>
+				<td><%= d.title %></td>
+				<td><%= d.description %></td>
+				<td><%= d.mood %></td>
+				
+			
+			</tr>
 		<% end %>
-	</p>
+	</table>
+	<br />
 
-	<p> 
-		<% @happy_green.each do |d| %>
-			<div style= 'color: green'> <%= d.mood %> </div>
-		<% end %>
-	</p>
+	<button class="btn btn-info" type="button"><%= link_to 'New Diary Entry', new_diary_entry_path %></button>
 
-	<% @diary_entries.each do |d| %>
-		<div style='color: <%= d.color %>'> 
-			<%= d.mood %>
-		</div>
-	<% end %>
+

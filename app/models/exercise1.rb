@@ -1,22 +1,6 @@
 class DiaryEntry < ActiveRecord::Base
 	attr_accessible :description, :title, :mood
 
-		validates :title, presence: true, uniqueness: true
-
-		validates :description, presence: true
-
-		validates :mood, :inclusion => { :in => ["happy", "joyful", "exuberant", "sad", "frustrated"]}
-
-		validate :happy_mon_thurs
-
-		
-		def happy_mon_thurs
-			if !((Time.now.monday? || Time.now.thursday?) && mood == "happy")
-				errors.add(:mood, "must be happy on Monday and Thursday")	
-			end
-		end
-
-
 		def happy? #instance method example
 			mood == "happy"
 		end
@@ -56,7 +40,7 @@ class DiaryEntry < ActiveRecord::Base
 		end
 
 		def self.month1
-			where(created_at: (to_date.beginning_of_day..to_date.end_of_day))
+			where(created_at: ("2013-01-01".to_date.beginning_of_day.."2013-01-31".to_date.end_of_day))
 		end
 
 # practice, bad
