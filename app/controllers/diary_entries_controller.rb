@@ -5,7 +5,24 @@ class DiaryEntriesController < ApplicationController
 	end
 
 	def index
-		@diary_entries = DiaryEntry.all
+
+		if params[:day]
+			@day = params[:day].to_date
+		else
+			@day = Date.today
+		end
+		
+		#@day = params[:day].to_date
+
+ 		@diary_entries = DiaryEntry.where(created_at: @day.beginning_of_day..@day.end_of_day)
+
+ 		@month_entries = DiaryEntry.where(created_at: @day.beginning_of_month..@day.end_of_month)
+ 		@checkmark = @month_entries.map do |i|
+ 			i.created_at.to_date
+ 		end
+
+
+ 	#	@diary_entries = DiaryEntry.all
 		@count = DiaryEntry.count
 		@happy = DiaryEntry.positive.count
 		@happy_green = DiaryEntry.positive

@@ -1,0 +1,18 @@
+<h2><%= @day.strftime("%B %Y") %></h2>
+
+<table class="table">
+	<% (@day.beginning_of_month.beginning_of_week..@day.end_of_month.end_of_week).each do |day| %>
+		<% if day.monday? %>
+			<tr>
+			</tr>
+		<%end%>
+
+		<td><%= link_to day.day, diary_entries_path(day: day) %>
+
+		<% if @checkmark.include?(day) %>
+			&#x2713;
+		<% end %>
+ 		</td>
+
+	<% end %>
+</table>

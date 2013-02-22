@@ -12,10 +12,16 @@
 </head>
 <body 
 	style = "background: powderblue">
+	<div class = "container-fluid">
+		<div class = "row-fluid">
+			<div class = "span4">
+			<h4>MY HACKLENDAR</h4>
+			</div>
 
-<h1><p class="text-center">My Hacklendar!</p></h1>
-
-<%= yield %>
+			<div class = "span8 offset3">
+					<%= yield %>
+		</div>
+	</div>
 
 </body>
 </html>
