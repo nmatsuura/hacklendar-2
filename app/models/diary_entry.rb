@@ -7,7 +7,7 @@ class DiaryEntry < ActiveRecord::Base
 
 		validates :mood, :inclusion => { :in => ["happy", "joyful", "exuberant", "sad", "frustrated"]}
 
-		validate :happy_mon_thurs
+		# validates :happy_mon_thurs
 
 		
 		def happy_mon_thurs
@@ -29,6 +29,10 @@ class DiaryEntry < ActiveRecord::Base
 
 		def self.positive
 			where(mood: ['happy', 'joyful', 'exuberant'])
+		end
+
+		def self.negative
+			where(mood: ['sad', 'frustrated'])
 		end
 
 	#	def self.positive1

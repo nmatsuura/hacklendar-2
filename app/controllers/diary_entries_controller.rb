@@ -17,10 +17,20 @@ class DiaryEntriesController < ApplicationController
  		@diary_entries = DiaryEntry.where(created_at: @day.beginning_of_day..@day.end_of_day)
 
  		@month_entries = DiaryEntry.where(created_at: @day.beginning_of_month..@day.end_of_month)
+
  		@checkmark = @month_entries.map do |i|
  			i.created_at.to_date
  		end
 
+ 		@positive = DiaryEntry.where(mood: ['happy', 'joyful', 'exuberant'])
+ 		@happy_face = @positive.map do |j|
+ 			j.created_at.to_date
+ 		end
+
+ 		@negative = DiaryEntry.where(mood: ['sad', 'frustrated'])
+ 		@sad_face = @negative.map do |k|
+ 			k.created_at.to_date
+ 		end
 
  	#	@diary_entries = DiaryEntry.all
 		@count = DiaryEntry.count

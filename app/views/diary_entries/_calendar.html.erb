@@ -12,6 +12,15 @@
 		<% if @checkmark.include?(day) %>
 			&#x2713;
 		<% end %>
+
+		<% if @happy_face.include?(day) %>
+			<i class="icon-thumbs-up"></i>
+		<% end %>
+
+		<% if @sad_face.include?(day) %>
+			<i class="icon-thumbs-down"%></i>
+		<% end %>
+
  		</td>
 
 	<% end %>
