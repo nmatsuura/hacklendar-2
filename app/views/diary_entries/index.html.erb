@@ -4,7 +4,7 @@
 <p class="muted">Total number of diary entries so far: <%= @count %> entries </p><br />
 
 	
-	<table class="table">
+	<table class="table table-condensed">
 		<tr>
 			<th>Title</th>
 			<th>Description</th>
@@ -23,16 +23,15 @@
 				<td><%= d.mood %></td>
 				<td><%= d.created_at %></td>
 				<td><%= link_to 'Show', d, class: 'btn btn-info' %></td>
-				<td><%= link_to 'Edit', edit_diary_entry_path(d), class: 'btn btn-success' %></td>
-				<td><%= link_to 'Update', edit_diary_entry_path(d), class: 'btn btn-warning' %></td>
+				<td><%= link_to 'Edit', edit_diary_entry_path(d), class: 'btn btn-warning' %></td>
 				<td><%= link_to 'Destroy', d, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			</tr>
 		<% end %>
 	</table>
 	<br />
 
-	<%= link_to "Previous day", diary_entries_path(day: @day - 1.day) %>
-	<%= link_to "Next day", diary_entries_path(day: @day + 1.day) %>
+	<%= link_to "Previous day", diary_entries_path(day: @day - 1.day) %> |
+	<%= link_to "Next day", diary_entries_path(day: @day + 1.day) %><br /><br />
 
 	<%= link_to 'New Diary Entry', new_diary_entry_path, class: 'btn btn-info' %> 
 
