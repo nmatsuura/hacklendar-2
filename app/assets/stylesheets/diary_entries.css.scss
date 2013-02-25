@@ -1,3 +1,13 @@
+.calendar {
+	td {
+		width: 50px; 
+		height: 50px;
+	}
+}
+
+//Change height and width of calendar only (without .calendar will apply to all tables!)
+//Can also nest rules without making a new line, but this is only specific to Rails (not to css)
+
 // Place all the styles related to the diary_entries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/

@@ -30,8 +30,8 @@
 	</table>
 	<br />
 
-	<%= link_to "Previous day", diary_entries_path(day: @day - 1.day) %> |
-	<%= link_to "Next day", diary_entries_path(day: @day + 1.day) %><br /><br />
+	<%= link_to "Previous day", diary_entries_path(day: @day - 1.day), class: 'btn' %> |
+	<%= link_to "Next day", diary_entries_path(day: @day + 1.day), class: 'btn' %><br /><br />
 
 	<%= link_to 'New Diary Entry', new_diary_entry_path, class: 'btn btn-info' %> 
 
