@@ -16,7 +16,7 @@ class DiaryEntriesController < ApplicationController
 
  		@diary_entries = DiaryEntry.where(created_at: @day.beginning_of_day..@day.end_of_day)
 
- 		@month_entries = DiaryEntry.where(created_at: @day.beginning_of_month..@day.end_of_month)
+ 		@month_entries = DiaryEntry.where(created_at: @day.beginning_of_month.beginning_of_week..@day.end_of_month.end_of_week)
 
  		@checkmark = @month_entries.map do |i|
  			i.created_at.to_date
